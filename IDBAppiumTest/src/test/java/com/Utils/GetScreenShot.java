@@ -14,7 +14,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import com.TestCases.IDBTestCaes;
+import com.TestCases.IDBTestCases;
 
 
 public class GetScreenShot implements ITestListener{
@@ -59,7 +59,7 @@ public class GetScreenShot implements ITestListener{
 	  // To capture screenshot.
 //	  File scrFile = ((TakesScreenshot) IDBTestCases.driver).getScreenshotAs(OutputType.FILE);
 	  
-	  File scrFile = ((TakesScreenshot) IDBTestCaes.driver).getScreenshotAs(OutputType.FILE);
+	  File scrFile = ((TakesScreenshot) IDBTestCases.driver).getScreenshotAs(OutputType.FILE);
 	  
 	  DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
 	  // If status = fail then set folder name "screenshots/Failures"

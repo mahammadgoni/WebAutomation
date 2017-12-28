@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
     <classes>
-      <class name="com.Utils.AppiumTest">
+      <class name="com.TestCases.IDBTestCaes">
         <methods>
+          <include name="createAccountTest"/>
           <include name="setUp"/>
-          <include name="inValidLoginTest"/>
+          <include name="changeHospitalNameTest"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.Utils.AppiumTest -->
+      </class> <!-- com.TestCases.IDBTestCaes -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

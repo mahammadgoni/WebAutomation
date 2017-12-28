@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.Utils.AppiumTest">
+      <class name="com.TestCases.IDBTestCaes">
         <methods>
+          <include name="createAccountTest"/>
           <include name="setUp"/>
+          <include name="validLoginTest"/>
+          <include name="changeHospitalNameTest"/>
           <include name="inValidLoginTest"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.Utils.AppiumTest -->
+      </class> <!-- com.TestCases.IDBTestCaes -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

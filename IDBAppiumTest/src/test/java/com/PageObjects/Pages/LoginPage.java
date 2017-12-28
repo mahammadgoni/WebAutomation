@@ -6,15 +6,11 @@ import org.openqa.selenium.WebDriver;
 import com.BaseSetUp.BasePageSetUp;
 
 public class LoginPage extends BasePageSetUp {
-//    By userId = By.id("mobileNo");
-//    By password = By.id("et_password");
-//    By login_Button = By.id("btn_mlogin");
-//    By existingUser_login = By.id("btn_mlogin");
-    
+
     By userId = By.id("emailInputLayout");
+    
     By password = By.id("pinFirstDigitET");
-//    By login_Button = By.id("btn_mlogin");
-//    By existingUser_login = By.id("btn_mlogin");
+
     
 
     public LoginPage(WebDriver driver) {
@@ -22,13 +18,19 @@ public class LoginPage extends BasePageSetUp {
     }
 
     public LoginPage accountLogin(String userName, String pin) {
-//        waitForVisibilityOf(existingUser_login);
-//        driver.findElement(existingUser_login).click();
+    	
+		System.out.println("Clicking on  Your Email ");
+
         driver.findElement(userId).clear();
+        
+		System.out.println("Entering the Email  :"+userName);
+        
         driver.findElement(userId).sendKeys(userName);
+        
+		System.out.println("Entering the Pin  :"+pin);
+        
         driver.findElement(password).sendKeys(pin);
-//        driver.findElement(login_Button).click();
-//        Assert.assertTrue(driver.findElement(By.id("userNameTV")).getText().equalsIgnoreCase("Sk Goni"));
+        
         return new LoginPage(driver);
     }
 }

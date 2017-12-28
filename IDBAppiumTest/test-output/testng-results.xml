@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="110308" started-at="2017-12-22T11:35:59Z" finished-at="2017-12-22T11:37:49Z">
+  <suite name="Default suite" duration-ms="395762" started-at="2017-12-26T14:50:23Z" finished-at="2017-12-26T14:56:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="110308" started-at="2017-12-22T11:35:59Z" finished-at="2017-12-22T11:37:49Z">
+    <test name="Default test" duration-ms="395762" started-at="2017-12-26T14:50:23Z" finished-at="2017-12-26T14:56:59Z">
       <class name="com.TestCases.IDBTestCaes">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.TestCases.IDBTestCaes@402a079c]" name="setUp" is-config="true" duration-ms="10733" started-at="2017-12-22T17:05:59Z" finished-at="2017-12-22T17:06:10Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="setUp" is-config="true" duration-ms="32775" started-at="2017-12-26T20:20:23Z" finished-at="2017-12-26T20:20:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validLoginTest()[pri:1, instance:com.TestCases.IDBTestCaes@402a079c]" name="validLoginTest" duration-ms="19471" started-at="2017-12-22T17:06:10Z" finished-at="2017-12-22T17:06:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validLoginTest -->
-        <test-method status="PASS" signature="inValidLoginTest()[pri:2, instance:com.TestCases.IDBTestCaes@402a079c]" name="inValidLoginTest" duration-ms="24515" started-at="2017-12-22T17:06:29Z" finished-at="2017-12-22T17:06:54Z">
+        <test-method status="PASS" signature="inValidLoginTest()[pri:1, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="inValidLoginTest" duration-ms="22406" started-at="2017-12-26T20:20:56Z" finished-at="2017-12-26T20:21:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inValidLoginTest -->
-        <test-method status="PASS" signature="createAccountTest()[pri:3, instance:com.TestCases.IDBTestCaes@402a079c]" name="createAccountTest" duration-ms="53984" started-at="2017-12-22T17:06:54Z" finished-at="2017-12-22T17:07:48Z">
+        <test-method status="PASS" signature="validLoginTest()[pri:2, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="validLoginTest" duration-ms="23669" started-at="2017-12-26T20:21:18Z" finished-at="2017-12-26T20:21:42Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createAccountTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.TestCases.IDBTestCaes@402a079c]" name="tearDown" is-config="true" duration-ms="1505" started-at="2017-12-22T17:07:48Z" finished-at="2017-12-22T17:07:49Z">
+        </test-method> <!-- validLoginTest -->
+        <test-method status="PASS" signature="changeMyNameAndPhoneNoTest()[pri:3, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="changeMyNameAndPhoneNoTest" duration-ms="73404" started-at="2017-12-26T20:21:42Z" finished-at="2017-12-26T20:22:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changeMyNameAndPhoneNoTest -->
+        <test-method status="PASS" signature="changeMyPinNoTest()[pri:4, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="changeMyPinNoTest" duration-ms="104267" started-at="2017-12-26T20:22:55Z" finished-at="2017-12-26T20:24:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changeMyPinNoTest -->
+        <test-method status="PASS" signature="changeHospitalNameTest()[pri:5, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="changeHospitalNameTest" duration-ms="76839" started-at="2017-12-26T20:24:40Z" finished-at="2017-12-26T20:25:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changeHospitalNameTest -->
+        <test-method status="PASS" signature="createAccountWithInvalidDetailsTest()[pri:6, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="createAccountWithInvalidDetailsTest" duration-ms="58104" started-at="2017-12-26T20:25:56Z" finished-at="2017-12-26T20:26:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAccountWithInvalidDetailsTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.TestCases.IDBTestCaes@3d51f06e]" name="tearDown" is-config="true" duration-ms="4278" started-at="2017-12-26T20:26:55Z" finished-at="2017-12-26T20:26:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
