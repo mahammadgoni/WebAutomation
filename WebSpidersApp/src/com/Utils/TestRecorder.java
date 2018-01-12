@@ -9,14 +9,16 @@ import atu.testrecorder.ATUTestRecorder;
 import atu.testrecorder.exceptions.ATUTestRecorderException;
 
 public class TestRecorder {
-	
-	
+		
 	ATUTestRecorder recorder;
 	
-	String videoDir = "RecordedTest";
-	
+	String videoDir = "IDBRecordedTest";
 	
 	public void StartRecord() throws ATUTestRecorderException{
+		
+		System.out.println("===============================================");
+		
+		System.out.println("Screen Recording Started");
 		
 		new File(videoDir).mkdir();
 		
@@ -24,7 +26,7 @@ public class TestRecorder {
 		
 		Date date = new Date();
 		
-		recorder = new ATUTestRecorder("RecordedTest", "TestRecord-"+ dateFormat.format(date), false);
+		recorder = new ATUTestRecorder("IDBRecordedTest", "IDBTestRecording-"+ dateFormat.format(date), false);
 		
 		recorder.start();
 	
@@ -33,7 +35,12 @@ public class TestRecorder {
 	
 	public void StopRecord() throws ATUTestRecorderException{
 		
+		System.out.println("=================================================");
+		
+		System.out.println("Screen Recording Stopped");
+		
 		recorder.stop();
 	}
+
 
 }

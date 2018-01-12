@@ -1,82 +1,96 @@
 package com.BaseSetup;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseSetUp {
-
-	public AppiumDriver<MobileElement> driver;
 	
-//	public WebDriver driver;
 
-	@BeforeClass(alwaysRun = true)
-	public void SetUp() {
+    protected WebDriver driver;
 
-		File classPath = new File(System.getProperty("user.dir"));
+    public BaseSetUp(WebDriver driver) {
+        this.driver = driver;
+    }
 
-		File appDir = new File(classPath, "/APK");
+    protected void waitForVisibilityOf(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    
+    protected void waitForClickabilityOf(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
-		File app = new File(appDir, "MyIDBCare.apk");
+    public void scrollPageUp() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, Double> swipeObject = new HashMap<String, Double>();
+        swipeObject.put("startX", 0.50);
+        swipeObject.put("startY", 0.95);
+        swipeObject.put("endX", 0.50);
+        swipeObject.put("endY", 0.01);
+        swipeObject.put("duration", 3.0);
+        js.executeScript("mobile: swipe", swipeObject);
+    }
 
-		DesiredCapabilities capabilities = new DesiredCapabilities();
 
-		capabilities.setCapability("deviceName", "Google Nexus 5 - 4.4.4 - API 19 - 1080x1920");
+    public void swipeLeftToRight() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, Double> swipeObject = new HashMap<String, Double>();
+        swipeObject.put("startX", 0.01);
+        swipeObject.put("startY", 0.5);
+        swipeObject.put("endX", 0.9);
+        swipeObject.put("endY", 0.6);
+        swipeObject.put("duration", 3.0);
+        js.executeScript("mobile: swipe", swipeObject);
+    }
 
-		// capabilities.setCapability("deviceName", "Hol-U19");
+    public void swipeRightToLeft() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, Double> swipeObject = new HashMap<String, Double>();
+        swipeObject.put("startX", 0.9);
+        swipeObject.put("startY", 0.5);
+        swipeObject.put("endX", 0.01);
+        swipeObject.put("endY", 0.5);
+        swipeObject.put("duration", 3.0);
+        js.executeScript("mobile: swipe", swipeObject);
+    }
 
-		capabilities.setCapability("udid", "192.168.56.101:5555"); // Give Device ID of your mobile phone
+    public void swipeFirstCarouselFromRightToLeft() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, Double> swipeObject = new HashMap<String, Double>();
+        swipeObject.put("startX", 0.9);
+        swipeObject.put("startY", 0.2);
+        swipeObject.put("endX", 0.01);
+        swipeObject.put("endY", 0.2);
+        swipeObject.put("duration", 3.0);
+        js.executeScript("mobile: swipe", swipeObject);
+    }
 
-		// capabilities.setCapability("udid", "IJYHMFAIZT65CAQK");
-
-		capabilities.setCapability("platformName", "Android");
-
-		capabilities.setCapability("platformVersion", "4.4.4");
-
-		capabilities.setCapability("appPackage", "nhs.ibd.com.nhsibd");
-
-		capabilities.setCapability("appActivity", "nhs.ibd.com.nhsibd.Features.Login.FreshLogin.FreshLoginActivity");
-
-		capabilities.setCapability("noReset", "true");
-
-		capabilities.setCapability("app", app.getAbsolutePath());
-
-		try {
-			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		} catch (MalformedURLException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-	}
-
-	@AfterClass(alwaysRun = true)
-	public void tearDown() {
-
-		try {
-
-			Thread.sleep(5000);
-//			driver.closeApp();
-			
-			driver.quit();
-
-			System.out.println("Logout Success");
-
-		} catch (Exception e) {
-
-			System.out.println("Logout Failed");
-			e.printStackTrace();
-
-		}
-	}
-
-}
+    public void performTapAction(WebElement elementToTap) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, Double> tapObject = new HashMap<String, Double>();
+        tapObject.put("x", (double) 360); // in pixels from left
+        tapObject.put("y", (double) 170); // in pixels from top
+        tapObject.put("element", Double.valueOf(((RemoteWebElement) elementToTap).getId()));
+        js.executeScript("mobile: tap", tapObject);
+    }
+    
+    public void highLightAnElement(By element){
+    	
+    	for (int i = 0; i <2; i++) {
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: yellow; border: 2px solid yellow;");
+            js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
+            }
+        }
+    	
+    }
+	

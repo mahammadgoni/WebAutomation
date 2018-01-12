@@ -3,13 +3,14 @@ package com.webspiders;
 import org.testng.annotations.Test;
 
 import com.Utils.GetScreenShot;
-import com.Utils.TestRecorder;
-
+import com.Utils.ScreenRecorder;
 import atu.testrecorder.exceptions.ATUTestRecorderException;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -28,13 +29,21 @@ public class TestCases {
 	public static AndroidDriver<AndroidElement> driver;
 	//private WebDriver driver;
 	
-	TestRecorder ts = new TestRecorder();
+//	TestRecorder ts = new TestRecorder();
+	
+	ScreenRecorder sr = new ScreenRecorder();
+	
+	String currentTestMethodName = "";
 
 	
 	@BeforeTest (alwaysRun=true)
-	public void BaseSetUp() throws ATUTestRecorderException {
+	public void BaseSetUp(Method method) throws IOException {
 		
-		ts.StartRecord();
+		currentTestMethodName = method.getName();
+		
+		ScreenRecorder.StartScreenRecording(currentTestMethodName);
+		
+//		ts.StartRecord();
 
 		File classPath = new File(System.getProperty("user.dir"));
 		
@@ -64,9 +73,9 @@ public class TestCases {
 		
 		//capabilities.setCapability("deviceName", "Hol-U19");
 		
-		capabilities.setCapability("deviceName", "emulator-5554");
+//		capabilities.setCapability("deviceName", "emulator-5554");
 		
-		capabilities.setCapability("udid", "emulator-5554"); //Give Device ID of your mobile phone
+		capabilities.setCapability("udid", "192.168.57.101:5555"); //Give Device ID of your mobile phone
 		
 		//capabilities.setCapability("udid", "IJYHMFAIZT65CAQK");
 		
@@ -78,7 +87,7 @@ public class TestCases {
 		
 		capabilities.setCapability("appActivity", "nhs.ibd.com.nhsibd.Features.Login.FreshLogin.FreshLoginActivity");
 		
-		capabilities.setCapability("noReset", "false");
+		capabilities.setCapability("noReset", "true");
 		
 		System.out.println("App installed successfully");
 				
@@ -97,7 +106,7 @@ public class TestCases {
 	}
 
 	@AfterClass (alwaysRun=true)
-	public void CloseSetUp() throws ATUTestRecorderException {
+	public void CloseSetUp() throws ATUTestRecorderException, IOException, InterruptedException {
 		
 			
 		try {
@@ -114,7 +123,12 @@ public class TestCases {
 			
 		}
 		
-		ts.StopRecord();
+//		String videoDir = "RecordedTest";
+//		new File(videoDir).mkdir();
+		
+		ScreenRecorder.StopScreenRecording(currentTestMethodName, "/RecordedTest", true);
+		
+//		ts.StopRecord();
 		
 
 	}
