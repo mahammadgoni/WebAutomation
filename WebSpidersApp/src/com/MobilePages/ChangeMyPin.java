@@ -27,9 +27,9 @@ public class ChangeMyPin extends BaseSetUp{
 	
 //	By newPin = By.id("nhs.ibd.com.nhsibd:id/newPinFirstDigitET");
 	
-	By newPin = By.xpath("//*[@ resource-id='nhs.ibd.com.nhsibd:id/newPinFirstDigitET']");
+	By newPin = By.xpath("//*[@resource-id='nhs.ibd.com.nhsibd:id/newPinFirstDigitET']");
 	
-	By repeatNewPin = By.xpath("//*[@ resource-id='nhs.ibd.com.nhsibd:id/repeatPinFirstDigitET']");
+	By repeatNewPin = By.xpath("//*[@resource-id='nhs.ibd.com.nhsibd:id/repeatPinFirstDigitET']");
 	
 //	By repeatNewPin = By.id("nhs.ibd.com.nhsibd:id/repeatPinFirstDigitET");
 
@@ -116,6 +116,7 @@ public class ChangeMyPin extends BaseSetUp{
 			driver.findElement(repeatNewPin).sendKeys(newPassword);
 		
 		return new ChangeMyPin(driver);
+		
 		
 	}
 
